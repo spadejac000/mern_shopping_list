@@ -10,7 +10,11 @@ const Item = require('./models/Item');
 const app = express();
 
 // Bodyparser Middleware
-app.use(bodyParser.json());
+// app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+  
 
 // DB Config
 const db = require('./config/keys').mongoURI;
@@ -38,7 +42,6 @@ app.get('/', (req, res) => {
 // @desc    Create An Item
 // @access  Public
 app.post('/', (req, res) => {
-    console.log("hello world");
     const newItem = new Item({
         name: req.body.name
     });
