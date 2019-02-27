@@ -10,10 +10,7 @@ const Item = require('./models/Item');
 const app = express();
 
 // Bodyparser Middleware
-// app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({
-    extended: true
-}));
+app.use(bodyParser.json());
   
 
 // DB Config
